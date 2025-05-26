@@ -13,15 +13,15 @@ export default function Main(){
         setListTitle(newListTitle);
     };
     // FUNZIONE PER L'ELIMINAZIONE DI UN INPUT IN PAGINA //
-    const handleDeleteTitle = (e) =>{
-        const newListTitle = listTitle.filter((title,index) => index != 0);
+    const handleDeleteTitle = (indexToDelete) =>{
+        const newListTitle = listTitle.filter((title,index) => index != indexToDelete);
     };
     return (
         <main>
             <div className="container">
                 <ul>
                    {listTitle.map((title, index) =>(
-                    <li key={index} onClick={()=>handleDeleteTitle()}>{title}</li>
+                    <li key={index}>{title}</li>
                     ))}
                 </ul>
                 <form onSubmit={handleFormSubmit}>
@@ -32,6 +32,7 @@ export default function Main(){
                         type="text"
                     />
                     <button className="btn btn-primary">Aggiungi</button>
+                    <button className="btn btn-danger" onClick={()=>handleDeleteTitle()}>Elimina</button>
                 </form>
             </div>
         </main>
