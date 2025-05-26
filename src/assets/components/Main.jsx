@@ -1,5 +1,10 @@
 export default function Main(){
     const listTitle = ["Html","Css","JavaScript"];
+
+    // PREVIENE L'INVIO DEL FORM IN PAGINA //
+    const handleFormSubmit =(e) => {
+        e.preventDeFault();
+    }
     
     return (
         <main>
@@ -9,7 +14,10 @@ export default function Main(){
                     <li key={index}>{title}</li>
                     ))}
                 </ul>
-                <input type="text"></input>
+                <form onSubmit={handleFormSubmit}>
+                    <input className="form-control" type="text"></input>
+                    <button className="btn btn-primary">Aggiungi</button>
+                </form>
             </div>
         </main>
     );

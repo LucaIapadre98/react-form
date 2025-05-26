@@ -6,10 +6,17 @@ main{
 }
 .container{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
   flex-direction: column;
 }
 .container ul li{
   font-size: 30px;
+}
+.container .form-control{
+  max-width: 50%;
+  margin: 15px 0;
+}
+.container .btn{
+  max-width: 10%;
 }
