@@ -1,11 +1,18 @@
+import { useState } from "react";
+
 export default function Main(){
-    const listTitle = ["Html","Css","JavaScript"];
+    // GESTIONE DELL'ARRAY //
+    const [listTitle, setListTitle] = useState(["Html","Css","JavaScript"]);
+    //GESTIONE DEL UOVO INPUT //
+    const [newTitle, setNewTitle] = useState("");
 
     // PREVIENE L'INVIO DEL FORM IN PAGINA //
     const handleFormSubmit =(e) => {
-        e.preventDeFault();
-    }
-    
+        e.preventDefault(); 
+        const newListTitle = [...listTitle, newTitle];
+        setListTitle(newListTitle);
+    };
+
     return (
         <main>
             <div className="container">
@@ -15,7 +22,12 @@ export default function Main(){
                     ))}
                 </ul>
                 <form onSubmit={handleFormSubmit}>
-                    <input className="form-control" type="text"></input>
+                    <input 
+                        value={newTitle} 
+                        onChange={(e)=>setNewTitle(e.target.value)}
+                        className="form-control" 
+                        type="text"
+                    />
                     <button className="btn btn-primary">Aggiungi</button>
                 </form>
             </div>
