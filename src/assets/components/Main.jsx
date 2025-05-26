@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Main(){
     // GESTIONE DELL'ARRAY //
-    const [listTitle, setListTitle] = useState(["Html","Css","JavaScript"]);
+    const [listTitle, setListTitle] = useState(["Html","Css","JavaScript","Express"]);
     //GESTIONE DEL UOVO INPUT //
     const [newTitle, setNewTitle] = useState("");
 
@@ -12,13 +12,16 @@ export default function Main(){
         const newListTitle = [...listTitle, newTitle];
         setListTitle(newListTitle);
     };
-
+    // FUNZIONE PER L'ELIMINAZIONE DI UN INPUT IN PAGINA //
+    const handleDeleteTitle = (e) =>{
+        const newListTitle = listTitle.filter((title,index) => index != 0);
+    };
     return (
         <main>
             <div className="container">
                 <ul>
                    {listTitle.map((title, index) =>(
-                    <li key={index}>{title}</li>
+                    <li key={index} onClick={()=>handleDeleteTitle()}>{title}</li>
                     ))}
                 </ul>
                 <form onSubmit={handleFormSubmit}>
