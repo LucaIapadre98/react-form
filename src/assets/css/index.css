@@ -9,6 +9,10 @@ main{
   justify-content: left;
   align-items: left;
   flex-direction: column;
+  border: 3px solid lightgray;
+  border-radius: 10px;
+  padding: 20px 10px;
+  max-width: 30%;
 }
 .container ul li{
   font-size: 30px;
@@ -17,7 +21,12 @@ main{
   max-width: 50%;
   margin: 15px 0;
 }
-.container .btn{
+.container form #btn-add{
+  max-width: 20%;
+  margin-right: 10px;
+  font-size: 20px;
+}
+.container form #btn-remove{
   max-width: 20%;
   margin-right: 10px;
   font-size: 20px;
